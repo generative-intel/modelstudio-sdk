@@ -48,10 +48,10 @@ class ModelStudioPredictor:
                 sleep_time = self.base_delay * (2 ** attempt)
                 logger.debug("Retrying in %d seconds", sleep_time)
                 time.sleep(sleep_time)
+                continue
 
-            else:
-                logger.error("Max retries reached. Request failed.")
-                return {"error": f"An error occurred after {self.max_retries} attempts: {err}"}
+        logger.error("Max retries reached. Request failed.")
+        return {"error": f"An error occurred after {attempt} attempts."}
 
 
 def read_images(image_paths):
