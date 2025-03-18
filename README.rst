@@ -66,8 +66,8 @@ The ModelStudio SDK includes a command-line tool for image prediction. After ins
     modelstudio --version
 
     # Predict using images
-    modelstudio predict --url "https://api.modelstudio.example.com" \
-                        --api_key "your_api_key" \
+    modelstudio predict --url "<YOUR-MODELSTUDIO-PROJECT-URL>" \
+                        --api_key "<YOUR-MODELSTUDIO-PROJECT-API_KEY>" \
                         --images image1.jpg image2.png \
                         --timeout 10 \
                         --max_retries 3 \
