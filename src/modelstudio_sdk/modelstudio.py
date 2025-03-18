@@ -9,6 +9,8 @@ The project specific api-url and api_key to make successful requests.
 import argparse
 import logging
 import sys
+from urllib.parse import unquote
+
 
 from modelstudio_sdk import __version__
 from modelstudio_sdk.predictor import ModelStudioPredictor, read_images
@@ -86,7 +88,7 @@ def predict_command(args):
     logger.info("Executing predict command")
 
     predictor = ModelStudioPredictor(
-        args.url,
+        unquote(args.url),
         args.api_key,
         timeout=args.timeout,
         max_retries=args.max_retries,
